@@ -21,9 +21,9 @@ import { FormSuccess } from "../form-success";
 import { login } from "@/actions/login";
 
 export const LoginForm = () => {
+  const [isPending, startTranistion] = useTransition();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [isPending, startTranistion] = useTransition();
 
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
